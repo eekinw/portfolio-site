@@ -8,6 +8,7 @@ interface RightMenuNavbarProps {
 
 const navLinks = [
   { href: '#about', label: 'About' },
+  { href: '#stack', label: 'Stack' },
   { href: '#experience', label: 'Experience' },
   { href: '#projects', label: 'Projects' },
   { href: '#contact', label: 'Contact' },

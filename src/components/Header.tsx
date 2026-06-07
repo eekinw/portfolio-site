@@ -6,6 +6,7 @@ import RightMenuNavbar from './RightMenuNavbar';
 
 const navLinks = [
   { href: '#about', label: 'About' },
+  { href: '#stack', label: 'Stack' },
   { href: '#experience', label: 'Experience' },
   { href: '#projects', label: 'Projects' },
   { href: '#contact', label: 'Contact' },

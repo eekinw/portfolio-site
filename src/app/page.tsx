@@ -7,6 +7,7 @@ import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import SideProjects from '@/components/SideProjects';
+import TechStack from '@/components/TechStack';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
@@ -37,6 +38,10 @@ export default function Main() {
 
         <Section>
           <Bento />
+        </Section>
+
+        <Section id="stack">
+          <TechStack />
         </Section>
 
         <Section id="experience">
