@@ -1,56 +1,56 @@
-import Image from "next/image";
-import myImage from '../public/me.jpeg';
-import NumberedList from "./NumberedList";
-import TechnologyList from "./TechnologyList";
+import Image from 'next/image';
+import myPic from '../public/mypic.jpeg';
+import NumberedList from './NumberedList';
+
+const technologies = [
+  'TypeScript',
+  'Next.js',
+  'Ruby on Rails',
+  'Amazon Web Services',
+  'PostgreSQL',
+  'Tailwind CSS',
+];
+
 const About = () => {
-  const technologies = ["Typescript", "NextJS", "Ruby on Rails", "Amazon Web Services", "PostgreSQL", "Tailwind CSS"]
   return (
     <>
-      <div className="mb-10" id="about">
+      <div className="mb-12" id="about">
         <NumberedList number="01" title="About Me" />
       </div>
-      <div className="text-gray-400">
-        <p>
-          {' '}
-          Hey there! Thanks for visiting my website. My name is Ee Kin and I come from an economics
-          background. My interest in <span className="text-gold">tech</span> and{' '}
-          <span className="text-gold">web development</span> started when I was working in my
-          current company as a business operations analyst. Somewhere along the line, I decided to
-          take the plunge and learn the ropes to become a software engineer - and I haven&apos;t
-          looked back since. My daily motivation stems from the fact that I get to learn something
-          new everyday.
-        </p>
-        <br />{' '}
-        <p className=" leading-relaxed">
-          In terms of my day-to-day, I&apos;m currently a{' '}
-          <span className="text-gold">full-stack engineer</span> where I get to work on everything -{' '}
-          <span className="text-gold">front-end, back-end</span>, and occasionally{' '}
-          <span className="text-gold">Dev-Ops</span>! Everyday is different and that&apos;s what I
-          love about being in tech - I get to immerse myself in a variety of different things and
-          learn from them.
-        </p>
-        <p>
-          <br /> Here are the technologies that I&apos;ve been working with recently:
-        </p>
-      </div>
-      <div className="mt-10">
-        <TechnologyList technologies={technologies} />
-      </div>
-      <div className="flex justify-center mt-10">
-        <div className="p-8 relative group inline-block">
-          {/* Group hover! */}
-          <Image
-            src={myImage}
-            width={300}
-            height={300}
-            className="absolute rounded-lg top-3 left-1 z-10 group-hover:translate-x-[-4px] group-hover:translate-y-[-5px] "
-            alt="Ee Kin Image"
-            priority
-          />
-          <div
-            className="w-72 h-72 rounded-lg border border-gold group-hover:translate-x-2 group-hover:translate-y-2"
-            style={{ backgroundColor: 'transparent', boxSizing: 'border-box' }}
-          ></div>
+      <div className="flex flex-col md:flex-row gap-12 items-start">
+        <div className="relative flex-shrink-0 mx-auto md:mx-0">
+          <div className="absolute inset-0 rounded-xl bg-gold/15 blur-xl scale-110" />
+          <div className="relative w-56 h-64 md:w-64 md:h-72 rounded-xl overflow-hidden border border-gold/30 shadow-lg shadow-gold/5">
+            <Image src={myPic} alt="Ee Kin Wong" fill className="object-cover" />
+          </div>
+        </div>
+
+        <div className="flex-1 text-[#8b949e] space-y-4">
+          <p>
+            Hey there! Thanks for visiting. I come from an economics background. My interest in{' '}
+            <span className="text-gold">tech</span> and{' '}
+            <span className="text-gold">web development</span> started when I was working as a
+            business operations analyst. Somewhere along the line, I decided to take the plunge and
+            learn the ropes to become a software engineer — and I haven&apos;t looked back since.
+          </p>
+          <p>
+            In my day-to-day, I&apos;m a{' '}
+            <span className="text-gold">full-stack engineer</span> working across{' '}
+            <span className="text-gold">front-end, back-end</span>, and occasionally{' '}
+            <span className="text-gold">DevOps</span>. Everyday is different, and that&apos;s what I
+            love about being in tech.
+          </p>
+          <p className="pt-2">Here are the technologies I&apos;ve been working with recently:</p>
+          <div className="flex flex-wrap gap-2 pt-1">
+            {technologies.map((tech) => (
+              <span
+                key={tech}
+                className="px-3 py-1 text-xs border border-gold/40 text-gold rounded-full font-mono tracking-wide"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
         </div>
       </div>
     </>

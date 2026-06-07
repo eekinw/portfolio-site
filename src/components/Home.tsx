@@ -1,37 +1,45 @@
-import Button from "./Button";
+import Image from 'next/image';
+import myPic from '../public/mypic.jpeg';
+import Button from './Button';
 
 const Home = () => {
-
   return (
-    <div className="flex flex-col">
-      <p className="mb-5 italic">Hi, my name is</p>
-      <h1 className="text-5xl font-bold mb-2">Ee Kin.</h1>
-      <h2 className="text-3xl font-bold text-gray-200">I build things for the web.</h2>
-      <div className="mt-10">
-        <p className="mb-10 text-white">
-          I&apos;m a self-taught software engineer based in Kuala Lumpur, Malaysia that focuses on
-          web development. Currently building cool stuff at{' '}
-          <a className="font-bold text-gold hover:underline" href="https://supa.so" target="_blank">
+    <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-12 w-full">
+      <div className="flex flex-col flex-1">
+        <p className="text-gold font-mono text-sm mb-4 tracking-wider">Hi, my name is</p>
+        <h1 className="text-5xl md:text-7xl font-bold text-[#e6edf3] mb-3 leading-tight">
+          Ee Kin Wong
+        </h1>
+        <h2 className="text-3xl md:text-4xl font-bold text-[#8b949e] mb-6">
+          Full-Stack Engineer
+        </h2>
+        <p className="text-[#8b949e] max-w-md mb-8 leading-relaxed">
+          Self-taught software engineer based in Kuala Lumpur, Malaysia. Currently building cool
+          things at{' '}
+          <a className="text-gold hover:underline" href="https://supa.so" target="_blank" rel="noopener noreferrer">
             SUPA
           </a>
           .
         </p>
+        <div className="flex gap-x-4">
+          <a href="https://github.com/eekinw" target="_blank" rel="noopener noreferrer">
+            <Button>GitHub ↗</Button>
+          </a>
+          <a
+            href="https://drive.google.com/file/d/1HfdYz5M4sNuEhNxTpS7pPDOvedZiI8FY/view?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button>Resume ↗</Button>
+          </a>
+        </div>
       </div>
-      <div className="flex justify-start gap-x-4">
-        <a href="https://github.com/eekinw" target="_blank" rel="noopener noreferrer">
-          <Button className="max-w-1/3 hover:scale-105 transition-all ease-in-out">
-            My Github
-          </Button>
-        </a>
-        <a
-          href="https://drive.google.com/file/d/1HfdYz5M4sNuEhNxTpS7pPDOvedZiI8FY/view?usp=sharing"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Button className="max-w-1/3 hover:scale-105 transition-all ease-in-out">
-            My Resume
-          </Button>
-        </a>
+
+      <div className="relative flex-shrink-0">
+        <div className="absolute inset-0 rounded-2xl bg-gold/20 blur-2xl scale-110" />
+        <div className="relative w-56 h-56 md:w-72 md:h-72 rounded-2xl overflow-hidden border-2 border-gold/30 shadow-xl shadow-gold/10">
+          <Image src={myPic} alt="Ee Kin Wong" fill className="object-cover" priority />
+        </div>
       </div>
     </div>
   );

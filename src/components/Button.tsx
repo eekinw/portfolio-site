@@ -2,26 +2,17 @@ export interface IButton extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'primary' | 'secondary';
 }
 
-// Reusable styled button with a primary and secondary variant, could add others like 'error' and 'warning' if needed
 const Button: React.FC<IButton> = ({ variant = 'primary', ...props }) => {
-  const buttonClasses = () => {
-    const commonClasses =
-      'border hover:shadow-md p-4 text-center rounded-md duration-300 transition-all';
+  const base =
+    'px-5 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 cursor-pointer whitespace-nowrap';
 
-    switch (variant) {
-      case 'primary':
-        return `bg-transparent text-white hover:brightness-125 border-gold 
-          disabled:bg-neutral-500 disabled:border-neutral-500 ${commonClasses} ${
-            props.className ?? ''
-          }`;
-      case 'secondary':
-        return `border-primary text-primary disabled:border-neutral-500
-          disabled:text-neutral-500 ${commonClasses} ${props.className ?? ''}`;
-    }
+  const variants = {
+    primary: `border border-indigo-500 text-indigo-400 hover:bg-indigo-500/10 hover:text-indigo-300 ${base}`,
+    secondary: `border border-zinc-700 text-zinc-400 hover:border-zinc-500 hover:text-zinc-200 ${base}`,
   };
 
   return (
-    <button {...props} className={buttonClasses()}>
+    <button {...props} className={`${variants[variant ?? 'primary']} ${props.className ?? ''}`}>
       {props.children}
     </button>
   );

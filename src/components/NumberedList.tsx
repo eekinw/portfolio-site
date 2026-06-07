@@ -1,17 +1,16 @@
-interface NumberedListProps { 
-    number: string;
-    title: string;
-};
-
+interface NumberedListProps {
+  number: string;
+  title: string;
+}
 
 const NumberedList = ({ number, title }: NumberedListProps) => {
   return (
-    <div className="flex gap-x-2 items-center">
-      <div>{number}.</div>
-      <div>{title}</div>
-      <hr className="w-1/3 h-0.5 bg-gold border-0 rounded my-2"></hr>
+    <div className="flex items-center gap-4">
+      <span className="text-gold font-mono text-sm">{number}.</span>
+      <h2 className="text-2xl font-bold text-[#e6edf3] whitespace-nowrap">{title}</h2>
+      <div className="flex-1 h-px bg-gradient-to-r from-gold/40 to-transparent max-w-xs" />
     </div>
   );
 };
 
-export default NumberedList
+export default NumberedList;

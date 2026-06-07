@@ -9,9 +9,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body
-      className='container mx-auto p-4'
-      >{children}</body>
+      <body>{children}</body>
     </html>
   );
 }
