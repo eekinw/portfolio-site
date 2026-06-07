@@ -1,49 +1,47 @@
+'use client';
+
 import Link from 'next/link';
 
-interface RightMenuNavbarProps { 
-    onClose: () => void;
+interface RightMenuNavbarProps {
+  onClose: () => void;
 }
+
+const navLinks = [
+  { href: '#about', label: 'About' },
+  { href: '#experience', label: 'Experience' },
+  { href: '#projects', label: 'Projects' },
+  { href: '#contact', label: 'Contact' },
+];
 
 const RightMenuNavbar = ({ onClose }: RightMenuNavbarProps) => {
   return (
-      <div
-          className="md:hidden fixed top-0 right-0 h-screen flex flex-col  w-1/2 bg-[#333333] shadow-lg p-6 z-50"
-      
-      >
-      <div className="flex justify-end">
-        <button className="text-gold text-3xl" onClick={onClose}>
-          &times;
-        </button>
-      </div>
-      <nav className="flex flex-col items-center justify-center space-y-4">
-        <Link href="#about" className="p-2 cursor-pointer hover:text-gold transition transform">
-          <div className="flex flex-col justify-center items-center gap-y-2">
-            <span className='text-gold'>01.</span>
-            <div>About</div>
-          </div>
-        </Link>
-        <Link
-          href="#experience"
-          className="p-2 cursor-pointer hover:text-gold transition transform"
+    <div className="md:hidden fixed inset-0 z-50 flex">
+      <div className="flex-1 bg-black/60 backdrop-blur-sm" onClick={onClose} />
+      <div className="w-3/4 max-w-xs bg-zinc-900 border-l border-zinc-800 flex flex-col p-8">
+        <button
+          onClick={onClose}
+          className="self-end text-zinc-500 hover:text-zinc-200 transition-colors mb-10"
+          aria-label="Close menu"
         >
-          <div className="flex flex-col justify-center items-center gap-y-2">
-            <span className='text-gold'>02.</span>
-            <div>Experience</div>
-          </div>
-        </Link>
-        <Link href="#projects" className="p-2 cursor-pointer hover:text-gold transition transform">
-          <div className="flex flex-col justify-center items-center gap-y-2">
-            <span className='text-gold'>03.</span>
-            <div>Side Projects</div>
-          </div>
-        </Link>
-        <Link href="#contact" className="p-2 cursor-pointer hover:text-gold transition transform">
-          <div className="flex flex-col justify-center items-center gap-y-2">
-            <span className='text-gold'>04.</span>
-            <div>Contact</div>
-          </div>
-        </Link>
-      </nav>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
+
+        <nav className="flex flex-col gap-7">
+          {navLinks.map(({ href, label }) => (
+            <Link
+              key={href}
+              href={href}
+              onClick={onClose}
+              className="text-zinc-400 hover:text-zinc-100 transition-colors text-lg font-medium"
+            >
+              {label}
+            </Link>
+          ))}
+        </nav>
+      </div>
     </div>
   );
 };
